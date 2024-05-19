@@ -1,0 +1,35 @@
+﻿@model CoffeeApp.Models.CoffeeOrder
+
+<h2>DisplayFinalDue</h2>
+
+@using (Html.BeginForm("DisplayFinalDue", "Coffee", FormMethod.Post))
+{
+    <h4>Coffee Order</h4>
+    <hr />
+    <div>
+        Enter customer name : @Html.EditorFor(m => m.CustomerName)
+    </div>
+
+    <div>
+        Select coffee size:
+        Small @Html.RadioButtonFor(m => m.CoffeeSize, "Small")
+        Medium @Html.RadioButtonFor(m => m.CoffeeSize, "Medium")
+        Large @Html.RadioButtonFor(m => m.CoffeeSize, "Large")
+    </div>
+
+    <div>
+        Select Additional Customizations:
+        Extra Shot @Html.CheckBoxFor(m => m.ExtraShot, false)
+        Flavored Syrup (Vanilla/Caramel) @Html.CheckBoxFor(m => m.FlavoredSyrup, false)
+    </div>
+
+    <div>
+        Enter the number of coffees required: @Html.EditorFor(m => m.Qty)
+    </div>
+
+    <div>Final Cost is: @Html.DisplayFor(m => m.FinalCost)</div>
+
+    <div>
+        <input type="submit" value="Calculate" />
+    </div>
+}
